@@ -1,24 +1,25 @@
-Thank you for taking the time to complete this task. We appreciate your effort and look forward to reviewing your submission.
+# Laravel Tech Task Demo API
 
-We would like you to create a basic Laravel API called **“Laravel Tech Task Demo API”**. The purpose of the API is to display, add, edit and delete tasks.
+This project is my solution for the **"Laravel Tech Task Demo API"**. Its primary purpose is to list, add, edit, and delete tasks.
 
-## Key criteria:
-1. A task is formed of a name (min 3, max 100 characters) and a description (min 10, max 5000 characters).
-2. Create an endpoint to view all tasks (no user restrictions).
-3. A secured URL is required to edit or delete a task. Provide the appropriate endpoints to do this when a task is created.
-4. No user accounts/ authentication is required.
-5. Should be a RESTful API with a base of: `/api/tasks`.
-6. Uses a NoSQL database (this is already setup).
-7. Appropriate Unit Tests.
-8. Uses Laravel Best Practices.
+- **Task Model Structure**:
+  - **Name**: Minimum 3, maximum 100 characters.
+  - **Description**: Minimum 10, maximum 5000 characters.
+- **Endpoints**:
+  - `GET /api/tasks`: View all tasks (no user restrictions).
+  - `POST /api/tasks`: Create a new task.
+  - `PUT /api/tasks/{task_id}?token={xxx}`: Update an existing task (secured via token).
+  - `DELETE /api/tasks/{task_id}?token={xxx}`: Delete a task (secured via token).
+- **Security**: Edit and delete operations are secured using a secure token.
+- **Database**: Utilizes an sqlite database
+- **Additional Features**:
+  - **Request Logging**: All requests are logged via middleware into a log file.
+  - **Soft Deleting**: Implemented to allow recovery of deleted tasks.
 
-## Bonus Criteria:
-1. All requests should be logged in a log file via middleware.
-2. Implement Soft Deleting.
+## Testing
 
-## Submission:
-1. Respond to the email you received with a link to the fork of this repository with your solution in. Please include a `.env` file within your repository.
-2. The three commands which will be used to run your solution will be:
-    1. `composer install`
-    2. `php artisan migrate`
-    3. `php artisan serve`
+To run the unit tests:
+
+```bash
+php artisan test
+```
